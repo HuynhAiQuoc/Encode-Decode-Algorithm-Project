@@ -1,0 +1,281 @@
+
+package com.raven.form;
+
+import com.raven.symmetric.algorithms.KeySymmetricAlgorithms;
+import com.raven.file.FileOperation;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+
+public class SecretKeyForm extends javax.swing.JPanel {
+
+    String[] algorithms = {"DES", "AES", "DESede", "Blowfish", "RC2"};
+    int[] keySizeAes = {128, 192, 256};
+    int[] keySizeDes = {56};
+    int[] keySizeDesede = {112, 168};
+    int[] keySizeBlowfish = {32, 56, 128, 448};
+    int[] keySizeRc2 = {40, 128, 448, 1024};
+    String pathKeyFile = "";
+    String algorithm = "";
+    int keySize = 0;
+    int[] keySizeTemp;
+    /**
+     * Creates new form Form_1
+     */
+    public SecretKeyForm() {
+        initComponents();
+     	btnKeyFile.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                FileNameExtensionFilter fileFilter = new FileNameExtensionFilter("", "txt");
+                fileChooser.setFileFilter(fileFilter);
+                fileChooser.setMultiSelectionEnabled(false);
+                int x1 = fileChooser.showDialog(SecretKeyForm.this, "Chọn file");
+                if (x1 == JFileChooser.APPROVE_OPTION) {
+                    File f = fileChooser.getSelectedFile();
+                    textField.setText(f.getAbsolutePath());
+                }
+            }
+        });
+        // add ActionListener for algorithms
+        comboBoxAlgorithm.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                @SuppressWarnings("unchecked")
+                JComboBox<String> cb = (JComboBox<String>) e.getSource();
+                algorithm = (String) cb.getSelectedItem();
+                System.out.println(algorithm);
+                if (algorithm.equals("DES")) {
+                    keySizeTemp = new int[keySizeDes.length];
+                    keySizeTemp = keySizeDes;
+                } else {
+                    if (algorithm.equals("AES")) {
+                        keySizeTemp = new int[keySizeAes.length];
+                        keySizeTemp = keySizeAes;
+                    } else {
+                        if (algorithm.equals("DESede")) {
+                            keySizeTemp = new int[keySizeDesede.length];
+                            keySizeTemp = keySizeDesede;
+                        } else {
+                            if (algorithm.equals("Blowfish")) {
+                                keySizeTemp = new int[keySizeBlowfish.length];
+                                keySizeTemp = keySizeBlowfish;
+                            } else {
+                                if (algorithm.equals("RC2")) {
+                                    keySizeTemp = new int[keySizeRc2.length];
+                                    keySizeTemp = keySizeRc2;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                comboBoxKeySize.removeAllItems();
+                for (int i = 0; i < keySizeTemp.length; i++) {
+                    comboBoxKeySize.addItem(keySizeTemp[i]);
+                }
+            }
+        });
+        //
+        comboBoxKeySize.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                @SuppressWarnings("unchecked")
+                JComboBox<Object> cb = (JComboBox<Object>) e.getSource();
+                keySize = (int) cb.getSelectedItem();
+            }
+        });
+
+        btnGenerateKey.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (pathKeyFile != null && algorithm != null && keySize != 0) {
+                    KeySymmetricAlgorithms ks = new KeySymmetricAlgorithms();
+                    FileOperation fo = new FileOperation();
+                    try {
+                        fo.writeFile(ks.convertSecretKeytoString(ks.createKey(algorithm, keySize)),
+                                textField.getText());
+                    } catch (NoSuchAlgorithmException e1) {
+
+                        e1.printStackTrace();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                    JOptionPane.showMessageDialog(SecretKeyForm.this, "Đã tạo khóa thành công");
+                }
+            }
+        });
+    }
+    
+    
+    
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        comboBoxAlgorithm = new javax.swing.JComboBox<>(algorithms);
+        comboBoxKeySize = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        textField = new javax.swing.JTextField();
+        btnKeyFile = new javax.swing.JButton();
+        btnGenerateKey = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(242, 242, 242));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+
+        jPanel2.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Property");
+
+        jLabel6.setText("Algorithms");
+
+        jLabel7.setText("Key size");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(comboBoxKeySize, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(comboBoxAlgorithm, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(comboBoxAlgorithm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(comboBoxKeySize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 10, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setText("Browse File");
+
+        jLabel9.setText("Key File");
+
+        btnKeyFile.setText("Browse");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(textField, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnKeyFile))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnKeyFile))
+                .addGap(0, 26, Short.MAX_VALUE))
+        );
+
+        btnGenerateKey.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnGenerateKey.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/power-button.png"))); // NOI18N
+        btnGenerateKey.setText("Generate Key");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(179, 179, 179)
+                .addComponent(btnGenerateKey, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnGenerateKey, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(213, Short.MAX_VALUE))
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGenerateKey;
+    private javax.swing.JButton btnKeyFile;
+    private javax.swing.JComboBox<String> comboBoxAlgorithm;
+    private javax.swing.JComboBox<Object> comboBoxKeySize;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField textField;
+    // End of variables declaration//GEN-END:variables
+}
