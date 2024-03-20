@@ -67,7 +67,9 @@ Hình 1. 10 Giao diện tạo khóa(public key – private key) mã hóa bất �
 
 ## CHƯƠNG 2:	HƯỚNG DẪN CLONE PROJECT VÀ CHẠY TRÊN MÁY 
 Hướng dẫn chạy ứng dụng trên máy tính:
+
 •	Bước 1: Bạn clone project về máy tính hoặc download dưới dạng .zip theo link sau đây https://github.com/HuynhAiQuoc/AnToanVaBaoMatThongTin
+
 •	Bước 2: Bạn cần giải nén file .zip bằng các phần mềm chuyên dụng, ở đây mình sẽ giới thiệu 2 cái:
 	WinRar: 
 	Link download: https://www.win-rar.com/download.html?&L=10
