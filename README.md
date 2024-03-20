@@ -89,7 +89,7 @@ Hướng dẫn chạy ứng dụng trên máy tính:
 	Link download: https://www.oracle.com/java/technologies/javase/jdk15-archive-downloads.html
  
 •	Bước 4: Bạn tìm file .jar(lưu ý: nếu chạy file .jar bạn cần mở bằng JDK 15 – Java(SE) Binary Platform) hoặc file .exe theo đường dẫn sau đây:
--	File security-semi-project.jar: Semi-project/dist/security-semi-project.jar.
+-	File security-semi-project.jar: Encode-Decode-Algorithm-Project/ui-dashboard/dist/security-semi-project.jar.
 -	File NongLamApplication.exe: 
 File .exe/NongLamApplication.exe
 
