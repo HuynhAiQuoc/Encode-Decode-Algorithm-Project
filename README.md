@@ -1,4 +1,3 @@
-https://github.com/HuynhAiQuoc/Encode-Decode-Algorithm-Project/assets/73823742/095c4d13-fed7-4103-b137-f0120cb289c3
 ## CHƯƠNG 1:	ỨNG DỤNG THIẾT KẾ VÀ HƯỚNG DẪN SỬ DỤNG
 ## 1.1	 Giao diện màn hình chờ:
 Khi người sử dụng chạy phầm mềm, giao diện màn hình chờ sẽ hiển thị như hình 1.1 
