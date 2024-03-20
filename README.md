@@ -1,4 +1,4 @@
-CHƯƠNG 1:	ỨNG DỤNG THIẾT KẾ VÀ HƯỚNG DẪN SỬ DỤNG
+##CHƯƠNG 1:	ỨNG DỤNG THIẾT KẾ VÀ HƯỚNG DẪN SỬ DỤNG
 1.1	 Giao diện màn hình chờ:
 Khi người sử dụng chạy phầm mềm, giao diện màn hình chờ sẽ hiển thị như hình 1.1 
  ![1](https://github.com/HuynhAiQuoc/Encode-Decode-Algorithm-Project/assets/73823742/afb2af08-d3aa-43bb-adb3-6b1ee8e03e57)
