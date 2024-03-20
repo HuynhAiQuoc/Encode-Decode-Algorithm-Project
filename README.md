@@ -71,12 +71,15 @@ Hướng dẫn chạy ứng dụng trên máy tính:
 •	Bước 1: Bạn clone project về máy tính hoặc download dưới dạng .zip theo link sau đây https://github.com/HuynhAiQuoc/AnToanVaBaoMatThongTin
 
 •	Bước 2: Bạn cần giải nén file .zip bằng các phần mềm chuyên dụng, ở đây mình sẽ giới thiệu 2 cái:
+
 	WinRar: 
 	Link download: https://www.win-rar.com/download.html?&L=10
+ 
 	7-zip:
 	Link download: https://www.7-zip.org/download.html
  
 •	Bước 3: Sau khi giải nén, bạn cần xác định được project này chạy JDK nào(Mình xài JDK 15 để xây dựng ứng dụng).
+
 	 JDK 15:
 	Link download: https://www.oracle.com/java/technologies/javase/jdk15-archive-downloads.html
  
