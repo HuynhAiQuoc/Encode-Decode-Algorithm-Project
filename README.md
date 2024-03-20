@@ -14,12 +14,14 @@ Hình 1. 2 Giao diện chính
 Như đã thấy trên hình, người sử dụng cần thực hiện chọn một vài tùy chọn cho phiên mã hóa và giải mã như sau:
 ##	Đối với File: 
 •	Encrypt – Algorithm – Mode – Padding – Key size – Key File(cần tạo 1 file lưu khóa như keySize.txt) – Input File – Ouput File – Start.
+
 •	Decrypt – Algorithm – Mode – Padding – Key size – Key File(cần tạo 1 file lưu khóa như keySize.txt) – Input File – Ouput File – Start.
  ![3](https://github.com/HuynhAiQuoc/Encode-Decode-Algorithm-Project/assets/73823742/9ef95395-a8b5-495d-8022-9aeb643be6f6)
 Hình 1. 3 Giao diện mã hóa đối xứng(với File)
  
 ##	Đối với chuỗi(String): 
 •	Encrypt – Algorithm – Mode – Padding – Key size – Key File(cần tạo 1 file lưu khóa như keySize.txt) – Input Text – Ouput Text – Start.
+
 •	Decrypt – Algorithm – Mode – Padding – Key size – Key File(cần tạo 1 file lưu khóa như keySize.txt) – Input Text – Ouput Text – Start.
  ![4](https://github.com/HuynhAiQuoc/Encode-Decode-Algorithm-Project/assets/73823742/6a7a947a-e0e5-45b2-8bde-c60a8d279c0d)
 Hình 1. 4 Giao diện mã hóa đối xứng(với chuỗi)
@@ -28,6 +30,7 @@ Hình 1. 4 Giao diện mã hóa đối xứng(với chuỗi)
 Như đã thấy trên hình, người sử dụng cần thực hiện chọn một vài tùy chọn cho phiên mã hóa và giải mã như sau:
 ##	Đối với File: 
 •	Encrypt – Algorithm – Key size – PublicKey(cần tạo 1 file lưu khóa công cộng như publicKeySize.txt) – Input File – Ouput File – Start.
+
 •	Decrypt – Algorithm – Key size – PrivateKey(cần tạo 1 file lưu khóa riêng tư như privateKeySize.txt) – Input File – Ouput File – Start.
 
  ![5](https://github.com/HuynhAiQuoc/Encode-Decode-Algorithm-Project/assets/73823742/e76487b0-c39c-4c0e-9578-44cff274433d)
@@ -35,6 +38,7 @@ Hình 1. 5 Giao diện mã hóa bất đối xứng(với File)
  
 ##	Đối với Chuỗi(String): 
 •	Encrypt – Algorithm – Key size – PublicKey(cần tạo 1 file lưu khóa công cộng như publicKeySize.txt) – Input Text – Ouput – Start.
+
 •	Decrypt – Algorithm – Key size – PrivateKey(cần tạo 1 file lưu khóa riêng tư như privateKeySize.txt) – Input Text – Ouput – Start.
  ![6](https://github.com/HuynhAiQuoc/Encode-Decode-Algorithm-Project/assets/73823742/6150756b-a497-4386-9e07-1d407e0fc4ed)
 Hình 1. 6 Giao diện mã hóa bất đối xứng(với chuỗi)
@@ -43,6 +47,7 @@ Hình 1. 6 Giao diện mã hóa bất đối xứng(với chuỗi)
 ## 1.5	Giao diện mã hóa sử dụng password(mật khẩu) với PBE:
 Như đã thấy trên hình, khi người sử dụng chọn xong file, người sử dụng bấm nút “Start”, lúc đó một hộp thoại tùy chọn sẽ hiện ra(Hình 1.8), người sử dụng cần thực hiện chọn một vài tùy chọn cho phiên mã hóa và giải mã như sau:
 •	Encrypt – Algorithm – Password Hash Integration – Password – Re-password – Delete Orginal File(Yes/No) – Ok.
+
 •	Decrypt(file sẽ có thêm đuôi .enx.) – Algorithm – Password Hash Integration – Password – Re-password – Delete Orginal File(Yes/No) – Ok.
  ![7](https://github.com/HuynhAiQuoc/Encode-Decode-Algorithm-Project/assets/73823742/64511ce7-5fd5-48fd-bdb0-b7f40cf585cc)
 
