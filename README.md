@@ -75,13 +75,16 @@ Hướng dẫn chạy ứng dụng trên máy tính:
 	Link download: https://www.win-rar.com/download.html?&L=10
 	7-zip:
 	Link download: https://www.7-zip.org/download.html
+ 
 •	Bước 3: Sau khi giải nén, bạn cần xác định được project này chạy JDK nào(Mình xài JDK 15 để xây dựng ứng dụng).
 	 JDK 15:
 	Link download: https://www.oracle.com/java/technologies/javase/jdk15-archive-downloads.html
+ 
 •	Bước 4: Bạn tìm file .jar(lưu ý: nếu chạy file .jar bạn cần mở bằng JDK 15 – Java(SE) Binary Platform) hoặc file .exe theo đường dẫn sau đây:
 -	File security-semi-project.jar: Semi-project/dist/security-semi-project.jar.
 -	File NongLamApplication.exe: 
 File .exe/NongLamApplication.exe
+
 •	Bước 5: Bạn chạy 2 file này như sau:
 -	File security-semi-project.jar: nhấp chuột phải -> chọn Open with -> chọn Java(SE) Binary Platform(bạn cần tải JDK 15 về rồi mới mở được).
 -	File NongLamApplicaton.exe: nhấp chuột trái 2 lần.
